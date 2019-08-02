@@ -10,6 +10,7 @@ The ID Batcher is a work in progress and has a lot of dead code that might be us
       functions inside have been replaced or rewritten.)
 
 Essential Classes: 
+
     Main (Deploys the program)
     uuidBatch (the data class for the object) 
     ChannelSend (The class that contains most of the functions such as generating the batches and sending them to Mongo)
