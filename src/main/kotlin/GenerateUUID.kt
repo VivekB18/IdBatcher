@@ -1,9 +1,19 @@
+/**
+ * This class may prove to be useful later on when integrating later on
+ *
+ * Class contain methods corresponding to the data class uuidBatch
+ *
+ */
+
+
 import io.vertx.kotlin.core.json.jsonObjectOf
 import java.util.UUID
 import io.vertx.core.json.JsonObject
 import io.vertx.kotlin.core.json.get
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.SendChannel
+import org.bson.BSONObject
+import org.bson.conversions.Bson
 import org.litote.kmongo.*
 
 
@@ -24,7 +34,9 @@ class GenerateUUID {
     val database = client.getDatabase("testBase")
     val collection = database.getCollection<uuidBatch>("channeltest")
 
-
+  /*
+   *  Fills the uuidBatch up to 500 ids
+   */
     fun fillBatch(batch: uuidBatch) {
        // println("called fill")
         val blockValues = mutableListOf<UUID>()
@@ -36,9 +48,18 @@ class GenerateUUID {
     //    println("filled batch")
     }
 
+ /*
+  *  Prints outs the created batch
+  */
     fun printBatch(batch: uuidBatch) {
         println(batch)
     }
+
+
+
+ /*
+  * Send a batch to the mongo database
+  */
 
     fun sendBatch(batch: uuidBatch) {
        // println( "called the insert method" )
@@ -46,15 +67,9 @@ class GenerateUUID {
        // println("sent")
     }
 
-    suspend fun sendManyBatches(channel: ReceiveChannel<uuidBatch>) {
-
-        for (batch in channel) {
-            fillBatch(batch)
-           // printBatch(batch)
-            sendBatch(batch)
-        }
-
-    }
+ /*
+  * Serialization and Deserialization methods if needed
+  */
 
     fun convertBatchToJson(batch: uuidBatch): JsonObject {
         println("Called batch to json")
@@ -68,7 +83,13 @@ class GenerateUUID {
     fun convertJsonToBatch(json: JsonObject): uuidBatch {
         return uuidBatch(used= json.get("used"), service= json.get("service"), block= json.get("block"))
     }
-/*
+
+
+ /*
+  * Dead method that was used for searching, connected to the router
+  */
+
+    /*
     suspend fun retrieveBatch(batch: uuidBatch, service: String): uuidBatch? {
         val retrievalJson = collection.findOneAndUpdate(
             BSONObject(
@@ -87,6 +108,5 @@ class GenerateUUID {
                 null
             }
 
-    }
-        */
-}
+    } */
+ }

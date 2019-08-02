@@ -1,3 +1,9 @@
+/**
+ * The router portion of the REST API, deactive but used to just send a get request for one a batch from mongo
+ */
+
+
+
 //import io.vertx.ext.web.Route
 //import io.vertx.ext.web.Router
 //import io.vertx.ext.web.RoutingContext
@@ -16,10 +22,7 @@
 //   // router.route().handler(LoggerHandler.create())
 //    //router.post().handler(BodyHandler.create())
 //    //router.get().handler()
-//    //router.post("/internal/v1/topic").coroutineHandler(applicationService::postToTopic)
-//    //router.post("/internal/v1/topics").coroutineHandler(applicationService::postToTopics)
 //    router.get("/getOneBatch").coroutineHandler(applicationService::receiveBlock)
-//    //router.post("/sendSomething").coroutineHandler(testClass::addItem)
 //    server.requestHandler(router).listen(8080)
 //    }
 //

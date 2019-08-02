@@ -1,3 +1,9 @@
+/**
+ * Scratch workplace, nothing of value here
+ */
+
+
+
 import io.vertx.core.Vertx
 import io.vertx.ext.web.RoutingContext
 import io.vertx.kotlin.core.json.jsonObjectOf
