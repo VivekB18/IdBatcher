@@ -4,19 +4,19 @@ Purpose: The IdBatcher program is designed to create 40 billion unique Id's ever
 
 The batches are formatted as such: 
 
-  {
-    "_id":"block1",
-    "used": true,
-    "service":"tool service",
-    "block": [
-      "uuid1", 
-      "uuid2", 
-      "uuid3", 
-      "uuid4",
-      ...,
-      "uuid500"
-      ]
-  }
+    {
+      "_id":"block1",
+      "used": true,
+      "service":"tool service",
+      "block": [
+        "uuid1", 
+        "uuid2", 
+        "uuid3", 
+        "uuid4",
+        ...,
+        "uuid500"
+        ]
+    }
 
 The breakdown of the batch is as follows: 
 
